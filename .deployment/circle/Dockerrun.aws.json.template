@@ -1,0 +1,16 @@
+{
+  "AWSEBDockerrunVersion": "1",
+  "Authentication": {
+    "Bucket": "zirra-docker-registry-auth",
+    "Key": "index.docker.io/dockerconfig.json"
+  },
+  "Image": {
+    "Name": "<DOCKER_REPOSITORY>:<TAG>",
+    "Update": "true"
+  },
+  "Ports": [
+    {
+      "ContainerPort": "3000"
+    }
+  ]
+}
