@@ -1,7 +1,6 @@
 machine:
   environment:
     DOCKER_REPOSITORY: zirra/libpostal-rest
-    UNIQUEID: $CIRCLE_BRANCH-$CIRCLE_SHA1
 
   services:
     - docker
@@ -18,5 +17,5 @@ deployment:
   eb-master:
     branch: master
     commands:
-#      - ./.deployment/circle/dockerhub_push.sh $DOCKER_REPOSITORY $UNIQUEID
-      - ./.deployment/circle/eb_deploy.sh $DOCKER_REPOSITORY $UNIQUEID libpostal-rest
+#      - ./.deployment/circle/dockerhub_push.sh $DOCKER_REPOSITORY $CIRCLE_BRANCH
+      - ./.deployment/circle/eb_deploy.sh $DOCKER_REPOSITORY $CIRCLE_BRANCH libpostal-rest
