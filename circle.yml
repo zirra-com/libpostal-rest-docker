@@ -18,5 +18,5 @@ deployment:
   eb-master:
     branch: master
     commands:
-      - ./.deployment/circle/dockerhub_push.sh $DOCKER_REPOSITORY $UNIQUEID
+#      - ./.deployment/circle/dockerhub_push.sh $DOCKER_REPOSITORY $UNIQUEID
       - ./.deployment/circle/eb_deploy.sh $DOCKER_REPOSITORY $UNIQUEID libpostal-rest
