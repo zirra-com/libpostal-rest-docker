@@ -12,7 +12,7 @@ fi
 
 EB_BUCKET=elasticbeanstalk-us-east-1-819318868604
 if [ -z "$EB_APPLICATION" ]; then
-  EB_APPLICATION=libpostal-rest
+  EB_APPLICATION=libpostal
 fi
 
 if [ -z "$EB_REGION" ]; then
