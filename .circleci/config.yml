@@ -1,13 +1,10 @@
 version: 2
 jobs:
-
   dockerhub-push:
     machine: true
     steps:
-      - attach_workspace:
-          at: /tmp/workspace
-      - run: |
-          sh dockerhub_push.sh zirra/facerecognition
+      - checkout
+      - run: sh dockerhub_push.sh zirra/libpostal-rest
 
   deploy-azure:
     docker:
