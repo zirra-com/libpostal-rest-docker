@@ -4,7 +4,8 @@ jobs:
     machine: true
     steps:
       - checkout
-      - run: sh dockerhub_push.sh zirra/libpostal-rest
+      - run: |
+          sh dockerhub_push.sh zirra/libpostal-rest
 
   deploy-azure:
     docker:
