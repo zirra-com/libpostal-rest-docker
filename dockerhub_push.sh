@@ -4,7 +4,16 @@
 set -e
 
 DOCKER_REPOSITORY=$1
-UNIQUEID=$2
+
+ALTERNATIVE_TAG=latest
+if [ ! -z "$CIRCLE_TAG" ]; then
+  UNIQUEID=release-$CIRCLE_TAG
+fi
+
+if [ ! -z "$CIRCLE_BRANCH" ]; then
+  UNIQUEID=$CIRCLE_BRANCH-$CIRCLE_SHA1
+fi
+
     
 # Build the docker image
 echo Build the docker image $DOCKER_REPOSITORY:$UNIQUEID
@@ -16,3 +25,7 @@ echo Pushing docker image $DOCKER_REPOSITORY:$UNIQUEID
 docker login -u $DOCKER_USER -p $DOCKER_PASS
 docker push $DOCKER_REPOSITORY:$UNIQUEID
 
+echo Tag the docker image as $DOCKER_REPOSITORY:$ALTERNATIVE_TAG
+docker tag $DOCKER_REPOSITORY:$UNIQUEID $DOCKER_REPOSITORY:$ALTERNATIVE_TAG
+echo Pushing docker image as $DOCKER_REPOSITORY:$ALTERNATIVE_TAG
+docker push $DOCKER_REPOSITORY:$ALTERNATIVE_TAG
