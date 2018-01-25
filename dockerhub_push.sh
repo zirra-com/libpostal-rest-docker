@@ -8,7 +8,7 @@ UNIQUEID=$2
 
 
 # Login to docker hub
-docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+docker login -u $DOCKER_USER -p $DOCKER_PASS
     
 # Build the docker image
 echo Build the docker image $DOCKER_REPOSITORY:$UNIQUEID
