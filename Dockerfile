@@ -34,4 +34,4 @@ RUN go install github.com/johnlonganecker/libpostal-rest
 
 EXPOSE 8080
 
-CMD libpostal-rest
+CMD /root/go/bin/libpostal-rest
