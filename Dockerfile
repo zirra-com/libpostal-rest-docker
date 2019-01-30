@@ -4,6 +4,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV LIBPOSTAL_VERSION   v1.1-alpha
 ENV LIBPOSTAL_DIR       /opt/libpostal
 ENV LIBPOSTAL_DATA_DIR  /opt/libpostal_data
+ENV LISTEN_PORT 80
 
 RUN apt-get update && apt-get install -y \
     wget \
@@ -32,6 +33,6 @@ RUN go get github.com/johnlonganecker/libpostal-rest
 
 RUN go install github.com/johnlonganecker/libpostal-rest
 
-EXPOSE 8080
+EXPOSE 80
 
 CMD /root/go/bin/libpostal-rest
